@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="vendors/angular.min.js"></script>
+    <script src="vendors/angular-route.min.js"></script>
+    <script src="scripts/client.js"></script>
+    <script src="scripts/controllers/sale.controller.js"></script>
+    <script src="scripts/services/sale.service.js"></script>
+    <title>Weekend 4 Challenge!</title>
+</head>
+<body ng-app="ListApp">
+    <h1>Property Listings</h1>
+    <div>
+        <h4>Navigation</h4>
+    <ul>
+            <li>
+                <a ng-href="#!/">Home - Add Listing</a>
+            </li>
+            <li>
+                <a ng-href="#!/sale">Sale Listings</a>
+            </li>
+            <li>
+                <a ng-href="#!/rental">Rental Listings</a>
+            </li>
+        </ul>
+    </div>
+        
+        <ng-view></ng-view>
+</body>
+</html>
