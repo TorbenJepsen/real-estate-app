@@ -17,4 +17,18 @@ app.service('SaleService', ['$http', function ($http) {
         })
     };
 
+    self.deleteListing = function(listing) {
+        $http({
+            method: 'DELETE',
+            url: '/lists',
+            params: listing
+        })
+        .then( function (response) {
+            self.getSale();
+        })
+        .catch(function (error) {
+            console.log('Nope Not Working', error);
+        })
+    }
+
 }]);

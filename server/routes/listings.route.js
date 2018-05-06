@@ -20,7 +20,7 @@ pool.on('error', (error) => {
 });
 
 router.get('/', (req, res) => {
-    pool.query(`SELECT * FROM "listings";`)
+    pool.query(`SELECT * FROM "listings" WHERE "type" = 'sale';`)
     .then((results) => {
         res.send(results.rows);
     })
@@ -29,45 +29,31 @@ router.get('/', (req, res) => {
     });
 });
 
-// router.post('/', (req, res) => {
-//     const shoe = req.body;
-//     pool.query(`INSERT INTO "listings" ("name", "cost")
-//                 VALUES ($1, $2);`, [shoe.name, shoe.cost])
-//         .then(() => {
-//             res.sendStatus(200);
-//         })
-//         .catch((error) => {
-//             console.log('error with SQL INSERT', error);
-//             res.sendStatus(500);
-//         });
-// });
 
-// router.put('/', (req, res) => {
-//     const shoe = req.body;
-//     pool.query(`UPDATE "listings" 
-//     SET "name" = ($1), 
-//     "cost" = ($2) 
-//     WHERE "id" = ($3);`, [shoe.name, shoe.cost, shoe.id])
-//     .then(() => {
-//         res.sendStatus(200);
-//     })
-//     .catch((error) => {
-//         console.log('error with SQL UPDATE', error);
-//         res.sendStatus(500);
-//     })
-// })
+router.post('/', (req, res) => {
+    const listing = req.body;
+    pool.query(`INSERT INTO "listings" ("cost", "sqft", "type", "city", "image_path")
+                VALUES ($1, $2, $3, $4, $5);`, [listing.cost, listing.sqft, listing.type, listing.city, listing.image_path])
+        .then(() => {
+            res.sendStatus(200);
+        })
+        .catch((error) => {
+            console.log('error with SQL INSERT', error);
+            res.sendStatus(500);
+        });
+});
 
-// router.delete('/', (req, res) => {
-//     const shoe = req.query.id;
-//     pool.query(`DELETE FROM "listings" WHERE "id" = ${shoe}`)
-//     .then(() => {
-//         res.send(shoe.rows);
+router.delete('/', (req, res) => {
+    const listing = req.query.id;
+    pool.query(`DELETE FROM "listings" WHERE "id" = ${listing}`)
+    .then((results) => {
+        res.send(results.rows);
 
-//     })
-//     .catch((error) => {
-//         console.log('error with SQL DELETE', error);
-//         res.sendStatus(500);
-//     })
-// })
+    })
+    .catch((error) => {
+        console.log('error with SQL DELETE', error);
+        res.sendStatus(500);
+    })
+})
 
 module.exports = router;

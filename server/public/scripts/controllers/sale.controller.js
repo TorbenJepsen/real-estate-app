@@ -6,4 +6,5 @@ app.controller('SaleController', ['SaleService', function (SaleService) {
     self.lists = SaleService.list;
     self.getSale = SaleService.getSale;
     self.getSale();
+    self.deleteListing = SaleService.deleteListing;
 }])
