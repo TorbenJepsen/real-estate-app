@@ -1,13 +1,16 @@
 <div>
     <h2>Rental Listings</h2>
-    {{vm.lists.data}}
-    <div class="card" ng-repeat="listing in vm.lists.data">
-        <img src="{{listing.image_path}}" alt="listing image" style="width: 85%;">
-        <div class="container">
-            <h4><b>${{listing.cost}}</b></h4>
-            <p>{{listing.sqft}} sq ft.</p>
-            <p>{{listing.city}}</p>
-            <button ng-click="vm.deleteListing(listing)">Delete</button>
+    <div class="row">
+        <div class="col-md-3 my-3" ng-repeat="listing in vm.lists.data">
+            <div class="card">
+                <img class="card-img-top img-fixed-height"  ng-src="/images/{{listing.image_path}}" alt="listing image" style="width: 100%;">
+                <div class="card-body text-center">
+                    <h4 class="card-title">${{listing.cost}}</h4>
+                    <p class="card-text">{{listing.sqft}} sq ft.</p>
+                    <p class="card-text">{{listing.city}}</p>
+                    <button class="btn btn-danger" ng-click="vm.deleteListing(listing)">Delete</button>
+                </div>
+            </div>
         </div>
     </div>
 </div>

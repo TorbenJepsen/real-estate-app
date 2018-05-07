@@ -1,26 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="vendors/angular.min.js"></script>
-    <script src="vendors/angular-route.min.js"></script>
-    <script src="scripts/client.js"></script>
-    <script src="scripts/controllers/sale.controller.js"></script>
-    <script src="scripts/controllers/rental.controller.js"></script>
-    <script src="scripts/controllers/add.controller.js"></script>
-    <script src="scripts/services/sale.service.js"></script>
-    <script src="scripts/services/rental.service.js"></script>
-    <script src="scripts/services/add.service.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
     <link rel="stylesheet" href="styles/styles.css">
     <title>Weekend 4 Challenge!</title>
 </head>
-<body ng-app="ListApp">
-    <h1>Property Listings</h1>
+
+<body ng-app="ListApp" class="container">
+    <div class="jumbotron">
+        <h1>Property Listings</h1>
+    </div>
     <div>
         <h4>Navigation</h4>
-    <ul>
+        <ul>
             <li>
                 <a ng-href="#!/">Home - Add Listing</a>
             </li>
@@ -32,7 +29,18 @@
             </li>
         </ul>
     </div>
-        
-        <ng-view></ng-view>
+
+    <ng-view></ng-view>
+
+    <script src="vendors/angular.min.js"></script>
+    <script src="vendors/angular-route.min.js"></script>
+    <script src="scripts/client.js"></script>
+    <script src="scripts/controllers/sale.controller.js"></script>
+    <script src="scripts/controllers/rental.controller.js"></script>
+    <script src="scripts/controllers/add.controller.js"></script>
+    <script src="scripts/services/sale.service.js"></script>
+    <script src="scripts/services/rental.service.js"></script>
+    <script src="scripts/services/add.service.js"></script>
 </body>
+
 </html>

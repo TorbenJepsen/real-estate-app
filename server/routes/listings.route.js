@@ -21,12 +21,12 @@ pool.on('error', (error) => {
 
 router.get('/', (req, res) => {
     pool.query(`SELECT * FROM "listings" WHERE "type" = 'sale';`)
-    .then((results) => {
-        res.send(results.rows);
-    })
-    .catch((error) => {
-        res.sendStatus(500);
-    });
+        .then((results) => {
+            res.send(results.rows);
+        })
+        .catch((error) => {
+            res.sendStatus(500);
+        });
 });
 
 
@@ -46,14 +46,14 @@ router.post('/', (req, res) => {
 router.delete('/', (req, res) => {
     const listing = req.query.id;
     pool.query(`DELETE FROM "listings" WHERE "id" = ${listing}`)
-    .then((results) => {
-        res.send(results.rows);
+        .then((results) => {
+            res.send(results.rows);
 
-    })
-    .catch((error) => {
-        console.log('error with SQL DELETE', error);
-        res.sendStatus(500);
-    })
+        })
+        .catch((error) => {
+            console.log('error with SQL DELETE', error);
+            res.sendStatus(500);
+        })
 })
 
 module.exports = router;
