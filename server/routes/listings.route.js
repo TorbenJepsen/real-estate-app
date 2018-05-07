@@ -35,7 +35,7 @@ router.post('/', (req, res) => {
     pool.query(`INSERT INTO "listings" ("cost", "sqft", "type", "city", "image_path")
                 VALUES ($1, $2, $3, $4, $5);`, [listing.cost, listing.sqft, listing.type, listing.city, listing.image_path])
         .then(() => {
-            res.sendStatus(200);
+            res.sendStatus(201);
         })
         .catch((error) => {
             console.log('error with SQL INSERT', error);
@@ -55,5 +55,13 @@ router.delete('/', (req, res) => {
             res.sendStatus(500);
         })
 })
+
+// another way to delete with "route params"
+// router.delete('/:id', (req, res) => {
+//     const listing_id = req.params.id;
+//     let queryText = 'DELETE FROM "listings" WHERE "id" = $1';
+//     pool.query(queryText, [listing_id]).then ((result) =>
+//     res.sendStatus(200)
+// )});
 
 module.exports = router;

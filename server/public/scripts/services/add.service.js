@@ -10,6 +10,7 @@ app.service('AddService', ['$http', function ($http) {
         })
             .then(function (response) {
                 console.log(response);
+                alert("Success!");
             })
     }
 }]);
