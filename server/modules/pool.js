@@ -33,6 +33,8 @@ if (process.env.DATABASE_URL) {
     };
 };
 
+console.log(config);
+
 const pool = new Pool(config);
 
 pool.on('connect', () => {
